@@ -7,4 +7,5 @@ test('Kịch bản test mẫu cho CI/CD @smoke', async ({ page }) => {
 
     // Kiểm tra tiêu đề trang
     await expect(page).toHaveTitle(/Playwright/);
+
 });
