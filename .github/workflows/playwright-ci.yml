@@ -93,6 +93,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
+      - name: Ensure gh-pages branch exists
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git ls-remote --heads origin gh-pages | grep -q gh-pages; then
+            echo "Branch gh-pages does not exist. Creating it..."
+            git checkout --orphan gh-pages
+            git reset --hard
+            git commit --allow-empty -m "Initialize gh-pages branch"
+            git push origin gh-pages
+            git checkout -f ${{ github.ref_name }}
+          else
+            echo "Branch gh-pages already exists."
+          fi
+
       - name: Merge Distributed Artifacts
         uses: actions/download-artifact@v4
         with:
