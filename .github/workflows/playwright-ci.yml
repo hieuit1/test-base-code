@@ -115,7 +115,7 @@ jobs:
           BaseURL=${{ vars.BASE_URL }}
           Environment=${{ github.event.client_payload.environment || github.event.inputs.environment || 'staging' }}
           Browser=Chromium
-          Project=Base-Playwright-TS
+          Project=test-base
           EOF
 
       - name: Generate Allure Report
@@ -141,7 +141,7 @@ jobs:
           echo "| Hạng mục | Thông tin chi tiết |" >> $GITHUB_STEP_SUMMARY
           echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
           echo "| **Môi trường** | \`${{ github.event.client_payload.environment || github.event.inputs.environment || 'staging' }}\` |" >> $GITHUB_STEP_SUMMARY
-          echo "| **Báo cáo Allure** | 👉 **[XEM BÁO CÁO TẠI ĐÂY](https://hieuit1.github.io/basecode-playwright-ts/)** |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Báo cáo Allure** | 👉 **[XEM BÁO CÁO TẠI ĐÂY](https://<tên-user-github>.github.io/<tên-repo-mới>/)** |" >> $GITHUB_STEP_SUMMARY
           echo "> Lưu ý: Nếu click vào link mà vẫn hiện ra báo cáo cũ hoặc chưa hiện ra ngay, hãy đợi 1-2 phút để GitHub Pages cập nhật." >> $GITHUB_STEP_SUMMARY
 
       - name: Send Email with Allure Link
@@ -163,7 +163,7 @@ jobs:
             - Trạng thái: Hoàn tất
             
             XEM BÁO CÁO TẠI ĐÂY (Allure Dashboard):
-            https://hieuit1.github.io/basecode-playwright-ts/
+            https://<tên-user-github>.github.io/<tên-repo-mới>/
             
             Chi tiết tiến trình trên GitHub Actions:
             ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
