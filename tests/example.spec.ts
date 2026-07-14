@@ -1,13 +1,10 @@
-import { test, expect } from '../src/fixtures/baseTest';
-import { customStep } from '../src/utils/reportHelper';
+import { test, expect } from '@playwright/test';
 
-test('Kiểm thử luồng CI/CD và Google @smoke', async ({ page }) => {
+// Gắn tag @smoke để khớp với lệnh --grep "@smoke" trong file CI của bạn
+test('Kịch bản test mẫu cho CI/CD @smoke', async ({ page }) => {
+    // Truy cập trang web
+    await page.goto('https://playwright.dev/');
 
-    await customStep(page, 'Mở trang chủ Google', async () => {
-        await page.goto('https://www.google.com');
-    });
-
-    await customStep(page, 'Kiểm tra tiêu đề trang', async () => {
-        await expect(page).toHaveTitle(/Google/);
-    });
+    // Kiểm tra tiêu đề trang
+    await expect(page).toHaveTitle(/Playwright/);
 });
