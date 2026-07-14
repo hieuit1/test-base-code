@@ -141,7 +141,7 @@ jobs:
           echo "| Hạng mục | Thông tin chi tiết |" >> $GITHUB_STEP_SUMMARY
           echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
           echo "| **Môi trường** | \`${{ github.event.client_payload.environment || github.event.inputs.environment || 'staging' }}\` |" >> $GITHUB_STEP_SUMMARY
-          echo "| **Báo cáo Allure** | 👉 **[XEM BÁO CÁO TẠI ĐÂY](https://<tên-user-github>.github.io/<tên-repo-mới>/)** |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Báo cáo Allure** | 👉 **[XEM BÁO CÁO TẠI ĐÂY](https://hieuit1.github.io/test-base/)** |" >> $GITHUB_STEP_SUMMARY
           echo "> Lưu ý: Nếu click vào link mà vẫn hiện ra báo cáo cũ hoặc chưa hiện ra ngay, hãy đợi 1-2 phút để GitHub Pages cập nhật." >> $GITHUB_STEP_SUMMARY
 
       - name: Send Email with Allure Link
@@ -163,12 +163,12 @@ jobs:
             - Trạng thái: Hoàn tất
             
             XEM BÁO CÁO TẠI ĐÂY (Allure Dashboard):
-            https://<tên-user-github>.github.io/<tên-repo-mới>/
+            https://hieuit.github.io/test-base/
             
             Chi tiết tiến trình trên GitHub Actions:
             ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
             
             Trân trọng,
             Hệ thống CI/CD Automation Bot
-          to: bentakeu@gmail.com, [EMAIL_ADDRESS]
+          to: bentakeu@gmail.com
           from: CI/CD Bot
